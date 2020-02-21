@@ -1,10 +1,14 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {PaginationItem, PaginationLink} from 'reactstrap';
 
-const StarWarsPagination = ({selectedPage, page}) => {
-    const [page, setPage] = useState();
+const StarWarsPagination = ({selectedPage, pageFromParent, goToPage}) => {
+    const [page, setPage] = useState(pageFromParent);
 
-    return <div />
+    return (
+        <PaginationItem active={selectedPage === page}>
+            <PaginationLink onClick={()=> goToPage(pageFromParent)}>{pageFromParent}</PaginationLink>
+        </PaginationItem>
+    );
 }
 
 export default StarWarsPagination;

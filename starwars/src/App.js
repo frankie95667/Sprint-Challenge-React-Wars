@@ -33,12 +33,17 @@ const App = () => {
     }
   }
 
+  const gotToPage = (page) => {
+    setQuery(`https://swapi.co/api/people?page=${page}`);
+  }
+
   return (
     <div className="App">
       <h1 className="Header">React Wars</h1>
       <StarWars 
         nextPage={nextPage} 
         prevPage={prevPage} 
+        goToPage={gotToPage}
         people={people} />
     </div>
   );
